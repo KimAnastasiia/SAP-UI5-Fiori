@@ -6,4 +6,8 @@ controllerName ="sap.ui.demo/walkthrough.controller.App"
    text ="Say Hi"
    press=".onShowHello"
    />
+   <Input  value="{/recipient/name}"
+   description = "hello {/recipient/name}"
+   valueLiveUpdate="true" 
+   width="60%"/>
 </mvc:View>
