@@ -9,7 +9,7 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("sap.ui.demo.walkthrough.App", {
-
+        /** 
         onInit: function () {
             var oData = {
                 recipient: {
@@ -27,7 +27,7 @@ sap.ui.define([
             });
             this.getView().setModel(i18nModel,"i18n");
         },
-
+        **/
         onShowHello: function () {
             // read msg from i18n model
             var oBundle = this.getView().getModel("i18n").getResourceBundle();
