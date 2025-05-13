@@ -1,19 +1,20 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/resource/ResourceModel"
-], function (UIComponent, JSONModel, ResourceModel) {
+    "sap/ui/model/resource/ResourceModel",
+    "./controller/HelloDialog"
+], function (UIComponent, JSONModel, ResourceModel, HelloDialog) {
     "use strict";
-    return UIComponent.extend("sap.ui.walkthrogh.Component",{
-        metadata : {
-            rootView : {
-                "viewName" : "sap.ui.demo.walkthrough.view.App",
-                "type" : "XML",
-                "async" : true,
-                "id" : "app"
+    return UIComponent.extend("sap.ui.walkthrogh.Component", {
+        metadata: {
+            rootView: {
+                "viewName": "sap.ui.demo.walkthrough.view.App",
+                "type": "XML",
+                "async": true,
+                "id": "app"
             }
         },
-        init : function () {
+        init: function () {
             // kill the init function of parent
             UIComponent.prototype.init.apply(this, arguments);
             // Set data models
@@ -32,7 +33,20 @@ sap.ui.define([
                 supportedLocales: [""],
                 fallbackLocale: ""
             });
-            this.setModel(i18nModel,"i18n");
+            this.setModel(i18nModel, "i18n");
+            //in this way we call our cusm fucns
+            this._helloDialog = new HelloDialog(this.getRootControl());
+
+
+        },
+        exis: function () {
+            this._helloDialog.destroy();
+            delete this._helloDialog;
+
+        },
+        openHelloDialog: function(){
+            this._helloDialog.open();
+            
         }
     })
 })

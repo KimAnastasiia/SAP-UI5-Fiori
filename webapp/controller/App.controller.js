@@ -28,7 +28,9 @@ sap.ui.define([
             this.getView().setModel(i18nModel,"i18n");
         },
         **/
-
+        onOpenDialog: function(){
+            this.getOwnerComponent().openHelloDialog();
+        }
 
     });
 })

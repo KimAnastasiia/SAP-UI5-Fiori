@@ -17,6 +17,7 @@ sap.ui.define([
             MessageToast.show(sMsg)
         },
         onOpenDialog: function () {
+            /*
             let oView = this.getView();
             if(!this.byId("helloDialog")){
                 Fragment.load({
@@ -33,7 +34,9 @@ sap.ui.define([
         },
         onCloseDialog : function(){
             this.byId("helloDialog").close();
-
+ */
+            this.getOwnerComponent().openHelloDialog();
         }
+
     })
 })
