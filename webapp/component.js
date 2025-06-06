@@ -5,16 +5,32 @@ sap.ui.define([
     "./controller/HelloDialog"
 ], function (UIComponent, JSONModel, ResourceModel, HelloDialog) {
     "use strict";
-    return UIComponent.extend("sap.ui.walkthrogh.Component", {
+    return UIComponent.extend("sap.ui.walkthrough.Component", {
         metadata: {
             rootView: {
                 "viewName": "sap.ui.demo.walkthrough.view.App",
                 "type": "XML",
                 "async": true,
                 "id": "app"
-            }
+            },
+            "models": {
+                "miModelo": {
+                    "type": "sap.ui.model.json.JSONModel",
+                    "settings": {
+                        "data": {
+                            "miDato": "Mi casa"
+                        }
+                    }
+                },
+                "invoice": {
+                    "type": "sap.ui.model.json.JSONModel",
+                    "uri": "/Invoices.json"
+                },
+ 
+            }  
         },
         init: function () {
+
             // kill the init function of parent
             UIComponent.prototype.init.apply(this, arguments);
             // Set data models

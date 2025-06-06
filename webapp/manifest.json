@@ -1,8 +1,6 @@
 {
     "_version": "1.1.0",
-	
-	"start_url": "<startUrl>",
-	
+    "start_url": "<startUrl>",
     "sap.app": {
         "_version": "1.1.0",
         "id": "<id>",
@@ -14,7 +12,8 @@
         "title": "{{<title>}}",
         "tags": {
             "keywords": [
-                "{{<keyword1>}}", "{{<keyword2>}}"
+                "{{<keyword1>}}",
+                "{{<keyword2>}}"
             ]
         },
         "dataSources": {
@@ -64,10 +63,10 @@
         "dependencies": {
             "minUI5Version": "<minUI5Version>",
             "libs": {
-                "<ui5lib1>": {                   
+                "<ui5lib1>": {
                     "minVersion": "<minVersion1>"
                 },
-                "<ui5lib2>": {                   
+                "<ui5lib2>": {
                     "minVersion": "<minVersion2>"
                 }
             },
@@ -78,27 +77,36 @@
             }
         },
         "models": {
+            "invoice": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Invoices.json"
+            },
+            "miModelo": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {
+                    "data": {
+                        "miDato": "Mi casa"
+                    }
+                }
+            },
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "<uriRelativeToManifest>"
-            },
-            "": {
-                "dataSource": "<dataSourceAlias>",
-                "settings": {}
             }
         },
-        "rootView": "<rootView>",
+        "rootView": {
+            "viewName": "sap.ui.demo.walkthrough.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
         "handleValidation": false,
-        "config": {
-          
-        },
-        "routing": {
-          
-        },
+        "config": {},
+        "routing": {},
         "extends": {
-            "component" : "<extendedComponentId>",
-			"minVersion": "<minComp1Version>",
-			"extensions": {}
+            "component": "<extendedComponentId>",
+            "minVersion": "<minComp1Version>",
+            "extensions": {}
         },
         "contentDensities": {
             "compact": false,
