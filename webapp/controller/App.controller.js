@@ -28,6 +28,9 @@ sap.ui.define([
             this.getView().setModel(i18nModel,"i18n");
         },
         **/
+       onInit: function () {
+            this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+        },
         onOpenDialog: function(){
             this.getOwnerComponent().openHelloDialog();
         }

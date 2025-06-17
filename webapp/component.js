@@ -22,23 +22,32 @@ sap.ui.define([
             var oModel = new JSONModel(oData);
             this.setModel(oModel);
 
-             var oDeviceModel = new JSONModel(Device);
+            var oDeviceModel = new JSONModel(Device);
             oDeviceModel.setDefaultBindingMode("OneWay");
             this.setModel(oDeviceModel, "device");
             // set dialog
             this._helloDialog = new HelloDialog(this.getRootControl());
 
             this.getRouter().initialize();
-            
-        },
 
+        },
+        getContentDensityClass: function () {
+            if (!this._sContentDensityClass) {
+                if (!Device.support.touch) {
+                    this._sContentDensityClass = "sapUiSizeCompact";
+                } else {
+                    this._sContentDensityClass = "sapUiSizeCozy";
+                }
+            }
+            return this._sContentDensityClass;
+        },
         exit: function () {
             this._helloDialog.destroy();
             delete this._helloDialog;
         },
 
-        openHelloDialog : function () {
+        openHelloDialog: function () {
             this._helloDialog.open();
-        } 
+        }
     });
 });
