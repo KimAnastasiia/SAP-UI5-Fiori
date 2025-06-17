@@ -2,29 +2,30 @@
 controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
 xmlns="sap.m"
 xmlns:mvc="sap.ui.core.mvc">
-
+  <Panel accessibleRole="Region">
+    <headerToolbar>
+        <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField
+                width="50%"
+                search=".onFilterInvoices"
+                ariaLabelledBy="searchFieldLabel"
+                ariaDescribedBy="searchFieldDescription"
+                placeholder="{i18n>searchFieldPlaceHolder}"/>
+        </Toolbar>
+    </headerToolbar>
     <Table
-      id = "invoiceList"
-        headerText="{i18n>invoiceListTitle}"
-        class="sapUiResponsiveMargin"
+        id="invoiceList"
+        class="saUiResponsiveMargin"
         width="auto"
         items="{
-        path: 'invoice>/Invoices',
-        sorter:{
-        path: 'ShipperName',
-        group: true
-        }}"
-      >
-
-           <headerToolbar>
-                <Toolbar >
-                    <Title text="{i18n>invoiceListTitle}"></Title>
-                    <ToolbarSpacer ></ToolbarSpacer>
-                    <SearchField width="50%" search=".onFilterInvoices" ></SearchField>
-                </Toolbar>
-           </headerToolbar>
-
-
+            path: 'invoice>/Invoices',
+            sorter: {
+                path: 'ShipperName',
+                group: true
+                }
+            }">
            <columns>
 
             <Column hAlign="End"  minScreenWidth="Small" demandPopin="true" width="4em" >
@@ -78,6 +79,7 @@ xmlns:mvc="sap.ui.core.mvc">
           </ColumnListItem>
         </items>
 
-    </Table>
+    </Table>   
+     </Panel>
 
 </mvc:View>
